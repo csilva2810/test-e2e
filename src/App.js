@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    setSubmitted(true);
+  }
+
+  if (submitted) {
+    return (
+      <div id="welcome">Welcome {username}</div>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="username" id="username" placeholder="username" onChange={(e) => { setUsername(e.target.value) }} value={username} />
+      <input type="password" name="password" id="password" placeholder="password" onChange={(e) => { setPassword(e.target.value) }} value={password} />
+      <button type="submit">Enviar</button>
+    </form>
   );
 }
 

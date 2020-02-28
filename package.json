@@ -14,7 +14,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:run": "cypress run --record --key 46142ce1-adbf-439d-a2d3-f69217fbaa32",
+    "pup:run": "jest puppeteer/*.spec.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +32,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "4.0.2",
+    "jest": "25.1.0",
+    "jest-cli": "25.1.0",
+    "puppeteer": "2.1.1"
   }
 }
